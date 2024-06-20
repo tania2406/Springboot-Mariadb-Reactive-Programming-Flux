@@ -46,12 +46,9 @@ public class EmployeeController {
 	{
 		return erepo.findByName(name);
 	}
-	@RequestMapping("/del/{id}")
-	public String del(@PathVariable int id)
-	{
-		 erepo.deleteById(id);
-		return "data deleted";
-	}
+	@DeleteMapping("del/{id}")
+    public Mono<Void> del(@PathVariable("id") int id){
+        return erepo.deleteById(id);
 	}
 
 
